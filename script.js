@@ -42,7 +42,7 @@ async function generateResponse(aiChatBox) {
         text.innerHTML = "An error occurred. Please try again.";
     } finally {
         chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "smooth" });
-        image.src = `asset/img.svg`;
+        image.src = `img.svg`;
         image.classList.remove("choose");
         user.file = {};
     }
@@ -57,7 +57,7 @@ function createChatBox(html, classes) {
 
 function handlechatResponse(userMessage) {
     user.message = userMessage;
-    let html = `<img src="asset/userImage.png" alt="" id="userImage" width="8%">
+    let html = `<img src="userImage.png" alt="" id="userImage" width="8%">
 <div class="user-chat-area">
 ${user.message ? user.message.replace(/\n/g, "<br>") : ""}
 ${user.file.data ? `<img src="data:${user.file.mime_type};base64,${user.file.data}" class="chooseimg" />` : ""}
@@ -69,10 +69,10 @@ ${user.file.data ? `<img src="data:${user.file.mime_type};base64,${user.file.dat
     chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "smooth" });
 
     setTimeout(() => {
-      let aiHtml = `<img src="asset/aiImage.jpg" alt="" id="aiImage" width="8%">
+      let aiHtml = `<img src="aiImage.jpg" alt="" id="aiImage" width="8%">
   <div class="ai-chat-area">
   Generate Response....
-  <img src="asset/loading.webp" alt="" class="load" width="60px">
+  <img src="loading.webp" alt="" class="load" width="60px">
   </div>`;
 
       let aiChatBox = createChatBox(aiHtml, "ai-chat-box");
